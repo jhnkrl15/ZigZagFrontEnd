@@ -1,0 +1,9 @@
+<mat-card *ngIf="book">
+  <mat-card-title>Book Details</mat-card-title>
+  <mat-card-content>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+    <p><strong>Published Date:</strong> {{ book.publishedDate }}</p>
+  </mat-card-content>
+  <button mat-button [routerLink]="'/'">Back to List</button>
+</mat-card>

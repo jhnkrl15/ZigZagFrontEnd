@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>Edit Book</mat-card-title>
+  <form [formGroup]="bookForm" (ngSubmit)="updateBook()">
+    <mat-form-field appearance="fill">
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="author">
+      <mat-error *ngIf="bookForm.get('author')?.invalid">Author is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>ISBN</mat-label>
+      <input matInput formControlName="isbn">
+      <mat-error *ngIf="bookForm.get('isbn')?.invalid">ISBN is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Published Date</mat-label>
+      <input matInput formControlName="publishedDate" type="date">
+      <mat-error *ngIf="bookForm.get('publishedDate')?.invalid">Published Date is required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Update</button>
+  </form>
+  <button mat-button [routerLink]="'/'">Back to List</button>
+</mat-card>

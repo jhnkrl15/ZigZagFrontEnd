@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-title>Book List</mat-card-title>
+  <mat-table [dataSource]="books" class="mat-elevation-z8">
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+      <mat-cell *matCellDef="let book"> {{ book.author }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="isbn">
+      <mat-header-cell *matHeaderCellDef> ISBN </mat-header-cell>
+      <mat-cell *matCellDef="let book"> {{ book.isbn }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="publishedDate">
+      <mat-header-cell *matHeaderCellDef> Published Date </mat-header-cell>
+      <mat-cell *matCellDef="let book"> {{ book.publishedDate | date:'yyyy-MM-dd' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let book">
+        <button mat-button [routerLink]="['/edit', book.id]">Edit</button>
+        <button mat-button [routerLink]="['/view', book.id]">View</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <button mat-raised-button color="primary" [routerLink]="'/create'">Add New Book</button>
+</mat-card>
